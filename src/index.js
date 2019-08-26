@@ -81,8 +81,10 @@ import PageHeader from '../packages/page-header/index.js';
 import CascaderPanel from '../packages/cascader-panel/index.js';
 import Avatar from '../packages/avatar/index.js';
 import Drawer from '../packages/drawer/index.js';
+import Zhpagination from '../packages-zh/pagination/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
+import app from './js/zh-app';
 
 const components = [
   Pagination,
@@ -161,6 +163,7 @@ const components = [
   CascaderPanel,
   Avatar,
   Drawer,
+  Zhpagination,
   CollapseTransition
 ];
 
@@ -187,6 +190,12 @@ const install = function(Vue, opts = {}) {
   Vue.prototype.$prompt = MessageBox.prompt;
   Vue.prototype.$notify = Notification;
   Vue.prototype.$message = Message;
+
+  Vue.prototype.$get = app.$get;
+  Vue.prototype.$post = app.$post;
+
+  Vue.prototype.ShowMag = app.ShowMag;
+  Vue.prototype.ShowMsgBox = app.ShowMsgBox;
 
 };
 
@@ -281,5 +290,6 @@ export default {
   PageHeader,
   CascaderPanel,
   Avatar,
-  Drawer
+  Drawer,
+  Zhpagination
 };
